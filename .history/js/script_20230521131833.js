@@ -3,7 +3,7 @@ const pipe = document.querySelector('.pipe');
 const overlay = document.getElementById('overlay');
 const scoreElement = document.getElementById('score');
 var restartMessage = document.getElementById('restart-message');
-let currentScore = 0;
+let pipeScore = 0;
 let isPipePassed = false;
 let startTime = null;
 const pointPerSecond
@@ -11,7 +11,7 @@ const pointPerSecond
 //pontuacao
 
 const updateScore = () => {
-    scoreElement.textContent = `score ${currentScore}`;
+    scoreElement.textContent = `score ${pipeScore}`;
 };
 
 const jump = (event) => {
@@ -46,7 +46,7 @@ const checkCollision = () => {
         gameOver();
     }  else if( pipePosition <= 0){ //caso o mario pule o tudo adicao de pontuacao +10
         if(!isPipePassed){
-            currentScore += 1;
+            pipeScore += 1;
             updateScore();
             isPipePassed = true;
         }
@@ -76,8 +76,8 @@ const restartGame = (event) =>{
         mario.src = './CSS/imagens/mario.gif';
         mario.style.width = '';
         mario.style.marginLeft = '';
-        score = currentScore;
-        currentScore = 0;
+        score = pipeScore;
+        pipeScore = 0;
         isPipePassed = false;
         updateScore();
         // retirando o escutador de evento (no caso da tecla X)
