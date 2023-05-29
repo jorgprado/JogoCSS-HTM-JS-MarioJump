@@ -1,0 +1,172 @@
+@font-face{
+    font-family: 'SuperGame';
+    src: url(fontes/SUPER\ GAME.otf) format('opentype');
+    
+}
+@font-face {
+    font-family: '8bitIn' ;
+    src: url(fontes/8-bit\ Arcade\ In.ttf) format('truetype');
+}
+@font-face {
+    font-family: '8bitOut' ;
+    src: url(fontes/8-bit\ Arcade\ Out.ttf) format('truetype');
+}
+
+
+*{
+margin: 0;
+padding:0 ;
+box-sizing: border-box;
+cursor: cursor;
+font-family: '8bitIn', sans-serif;
+}
+
+.game-board > #score{
+    text-align: center;
+    align-items: center;
+}
+
+#score{
+    font-size: 2.5em;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 4px rgba(0, 0, 255, 0.457);;
+
+}
+.game-board{
+    width: 100%;
+    height: 100vh;
+    border-bottom: 100px solid rgb(35,160,35);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient( #87ceed, #e0f6ff);
+}
+
+.pipe{
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    animation: pipe-animation 1.5s linear infinite;
+    transition: animation-duration .5s ease-in-out;
+}
+
+.mario{
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+    
+}
+
+.jump{
+    animation: jump 500ms  ease-out;
+}
+
+.nuvens{
+    padding-top: 70px;
+    position: absolute;
+    width: 500px;
+    animation: clouds-animation 20s infinite linear;
+    opacity: 0.8;
+}
+
+.message{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+    font-size: 24px;
+    color: rgb(241, 241, 241);
+    background-color: rgba(0, 0, 0, .7);
+    display: none;
+    background-color: transparent;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    
+}
+
+.message > #desktop-message{
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.524);
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+
+.message > #mobile-message{
+    display: none;
+}
+
+.message > p > span{
+    font-size: 1.8em;   
+}
+
+.message > img{
+    width: 210px;
+    height: 130px;
+}
+
+#overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: none;
+}
+
+@keyframes pipe-animation {
+    from{
+        right:-80px;
+    }
+    to{
+        right: 100%;
+    }
+    
+}
+
+@keyframes jump {
+
+   0%{
+       bottom: 0;
+   }
+
+   40%{
+       bottom: 180px;
+   }
+
+   50%{
+       bottom: 180px;
+   }
+
+   60%{
+    bottom: 180px;
+}
+
+    100%{
+        bottom: 0px;
+    }
+    
+}
+
+@keyframes clouds-animation{
+    from{
+        right: -550px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .message > #desktop-message{
+        display: none;
+    }
+
+    .message > #desktop-message{
+        display: none;
+    }
+}
